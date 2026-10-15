@@ -1,0 +1,11 @@
+{
+  "name": "Organigastos",
+  "short_name": "Organigastos",
+  "description": "Tu organizador personal de gastos en quetzales",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f1e7",
+  "theme_color": "#a77b55",
+  "icons": []
+}

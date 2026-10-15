@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#d45f91">
+<meta name="description" content="Tu dinero, tus planes, tu tranquilidad. Organigastos personal.">
+<link rel="manifest" href="manifest.json">
+<title>Organigastos 💗</title>
+<style>
+:root{--pink:#a77b55;--pink2:#eee0cf;--cream:#fbf6ee;--ink:#3d332b;--muted:#8c8175;--green:#5f8068;--red:#b96552;--line:#e9dfd2;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fbf6ee,#f7f0e5 45%,#fffdf9);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+header{padding:20px 18px 15px;background:#f8f1e7;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:3}
+.brand{font-size:25px;font-weight:850;letter-spacing:-.8px}.brand span{color:var(--pink)}.sub{font-size:13px;color:var(--muted);margin-top:4px}
+main{max-width:720px;margin:auto;padding:16px 14px 100px}.hero{background:linear-gradient(135deg,#efe1ce,#faf3e8);border:1px solid #e5d3bd;border-radius:22px;padding:18px;margin-bottom:14px}
+.eyebrow{font-size:12px;color:#79624d;font-weight:700}.balance{font-size:32px;font-weight:850;letter-spacing:-1px;margin:5px 0 14px}.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile,.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:14px}.tile small,.muted{color:var(--muted);font-size:12px}.tile strong{display:block;font-size:18px;margin-top:5px}.green{color:var(--green)}.red{color:var(--red)}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:5;background:#fffdf9df9;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:9px 4px calc(9px + env(safe-area-inset-bottom));box-shadow:0 -5px 20px #5a43200a}
+nav button{border:0;background:none;color:var(--muted);font-size:11px;padding:5px 8px;display:flex;flex-direction:column;align-items:center;gap:4px}nav button b{font-size:19px}nav button.active{color:var(--pink);font-weight:800}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:21px 2px 10px;font-weight:800;font-size:17px}
+button,.btn{cursor:pointer;font:inherit}.primary{border:0;border-radius:13px;background:var(--pink);color:white;padding:12px 16px;font-weight:750}.secondary{border:1px solid var(--line);border-radius:12px;background:#fffdf9;padding:10px 12px;color:var(--ink)}.smallbtn{font-size:12px;padding:8px 10px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.rowmain{min-width:0}.rowmain strong{display:block;font-size:14px;overflow-wrap:anywhere}.rowmain small{display:block;color:var(--muted);font-size:12px;margin-top:4px}.amount{font-weight:800;white-space:nowrap}.pill{display:inline-block;padding:5px 8px;border-radius:99px;background:#f0e5d6;color:#856345;font-size:11px;font-weight:750}
+form{display:grid;gap:12px}.field{display:grid;gap:6px;font-size:13px;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid #e9dce4;border-radius:12px;padding:12px;background:#fffdf9;color:var(--ink);font:inherit;min-width:0}.field textarea{min-height:65px}.types{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.typebtn{border:1px solid var(--line);border-radius:12px;background:#fffdf9;padding:10px 5px;color:var(--muted);font-weight:700}.typebtn.sel{background:var(--pink2);border-color:var(--pink);color:#79583d}
+.progress{height:8px;background:#eee5d9;border-radius:99px;overflow:hidden;margin:9px 0 5px}.progress span{display:block;height:100%;background:linear-gradient(90deg,#c7ad8d,#9c7955);border-radius:99px}
+.hidden{display:none!important}.empty{text-align:center;padding:28px 10px;color:var(--muted);font-size:14px}.notice{font-size:12px;color:var(--muted);line-height:1.5;margin-top:10px}.goal{margin-bottom:10px}.goalhead{display:flex;justify-content:space-between;gap:10px}.goalhead strong{font-size:14px}.goalhead small{color:var(--muted)}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}.filters button{border:1px solid var(--line);border-radius:99px;padding:7px 12px;background:#fffdf9;color:var(--muted);font-size:12px}.filters button.sel{background:var(--pink2);border-color:var(--pink);color:#79583d}
+input[type=checkbox]{accent-color:var(--pink)}.danger{color:var(--red)}footer{text-align:center;color:var(--muted);font-size:11px;margin:24px 0}
+@media(min-width:600px){main{padding:22px 20px 100px}.hero{padding:24px}.balance{font-size:38px}}
+</style>
+</head>
+<body>
+<header><div class="brand">Organigastos<span> ♥</span></div><div class="sub">Tu dinero, tus planes, tu tranquilidad ✨</div></header>
+<main>
+<section id="home">
+ <div class="hero"><div class="eyebrow">SALDO DISPONIBLE</div><div class="balance" id="balance">Q 1,022.16</div><div class="tiles">
+  <div class="tile"><small>Ingresos registrados</small><strong class="green" id="incomeTotal">Q 0.00</strong></div>
+  <div class="tile"><small>Gastos registrados</small><strong class="red" id="expenseTotal">Q 0.00</strong></div>
+ </div></div>
+ <div class="section-title">Tu mes <span class="pill" id="monthLabel"></span></div>
+ <div class="card"><div style="display:flex;justify-content:space-between;gap:12px"><div><small class="muted">Movimientos</small><div style="font-size:23px;font-weight:850" id="count">0</div></div><div><small class="muted">Ahorro apartado</small><div style="font-size:23px;font-weight:850" id="savedTotal">Q 0.00</div></div></div><div class="notice">El saldo inicial se puede editar en Ajustes. El saldo se calcula con tus movimientos reales.</div></div>
+ <div class="section-title">Últimos movimientos <button class="secondary smallbtn" onclick="showPage('movements')">Ver todos</button></div>
+ <div class="card" id="recent"></div>
+ <div class="section-title">Metas de ahorro <button class="secondary smallbtn" onclick="showPage('goals')">Ver metas</button></div><div class="card" id="homeGoals"></div>
+</section>
+<section id="add" class="hidden">
+ <div class="section-title">Agregar movimiento</div>
+ <div class="card"><form id="moveForm">
+  <div class="types"><button type="button" class="typebtn sel" data-type="expense">− Gasto</button><button type="button" class="typebtn" data-type="income">＋ Ingreso</button><button type="button" class="typebtn" data-type="saving">♡ Ahorro</button></div>
+  <label class="field">Monto (Q)<input id="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required></label>
+  <label class="field">Concepto<input id="concept" maxlength="100" placeholder="Ej. comida, internet, salario..." required></label>
+  <label class="field">Categoría<select id="category"><option>Comida</option><option>Universidad</option><option>Internet</option><option>Suscripciones</option><option>Deudas</option><option>Transporte</option><option>Compras personales</option><option>Regalos</option><option>Ahorro</option><option>Salario</option><option>Otros</option></select></label>
+  <label class="field">Fecha<input id="date" type="date" required></label>
+  <label class="field">Método de pago<select id="method"><option>Cuenta Banrural</option><option>Efectivo</option><option>Tarjeta</option><option>Transferencia</option><option>Otro</option></select></label>
+  <label class="field">Nota (opcional)<textarea id="note" placeholder="Un detalle si lo necesitás..."></textarea></label>
+  <button class="primary" type="submit">Guardar movimiento</button>
+ </form></div>
+ <p class="notice">Solo se registran movimientos que ya ocurrieron. Los pagos futuros se pueden manejar aparte como recordatorios.</p>
+</section>
+<section id="movements" class="hidden">
+ <div class="section-title">Movimientos <button class="primary smallbtn" onclick="showPage('add')">＋ Agregar</button></div>
+ <div class="filters"><button class="sel" data-filter="all">Todos</button><button data-filter="income">Ingresos</button><button data-filter="expense">Gastos</button><button data-filter="saving">Ahorros</button></div>
+ <div class="card" id="movementList"></div>
+</section>
+<section id="budget" class="hidden">
+ <div class="section-title">Presupuesto <span class="pill" id="budgetMonth"></span></div>
+ <div class="card"><label class="field">Presupuesto mensual de gastos (Q)<input type="number" id="budgetLimit" min="0" step=".01"></label><button class="primary" style="margin-top:12px" onclick="saveBudget()">Guardar presupuesto</button><div class="section-title">Gastos por categoría</div><div id="categoryBars"></div></div>
+ <div class="section-title">Pagos recurrentes</div><div class="card"><div id="bills"></div><button class="secondary" style="margin-top:12px" onclick="addBill()">＋ Agregar pago recurrente</button><p class="notice">Estos son recordatorios, no gastos ya pagados. Al pagar, registrá el movimiento por separado.</p></div>
+</section>
+<section id="goals" class="hidden">
+ <div class="section-title">Metas de ahorro <button class="primary smallbtn" onclick="addGoal()">＋ Nueva meta</button></div><div id="goalList"></div>
+</section>
+<section id="settings" class="hidden">
+ <div class="section-title">Ajustes y respaldo</div><div class="card"><label class="field">Saldo inicial (Q)<input type="number" id="openingBalance" step=".01"></label><p class="notice">Es el saldo con el que empieza el registro. Usá el saldo de tu cuenta al iniciar el seguimiento y luego registrá cada movimiento real una sola vez.</p><button class="primary" onclick="saveOpening()">Guardar saldo inicial</button></div>
+ <div class="section-title">Tus datos</div><div class="card"><p style="margin-top:0">Tus datos se guardan en este navegador/dispositivo. Exportá un respaldo de vez en cuando para no perderlos.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="primary" onclick="exportData()">Exportar respaldo</button><label class="secondary" style="display:inline-block">Importar respaldo<input type="file" accept="application/json" id="importFile" style="display:none" onchange="importData(event)"></label></div><button class="secondary danger" style="margin-top:12px" onclick="resetData()">Borrar todos los datos</button><p class="notice">Privacidad: no conectamos con Banrural ni pedimos contraseñas. El saldo se actualiza con lo que registrés manualmente.</p></div>
+</section>
+<footer>Hecha con 💗 para llevar tus cuentas en orden.</footer>
+</main>
+<nav><button class="active" data-page="home"><b>⌂</b>Inicio</button><button data-page="movements"><b>☷</b>Movimientos</button><button data-page="add"><b>＋</b>Agregar</button><button data-page="budget"><b>▥</b>Presupuesto</button><button data-page="settings"><b>⚙</b>Más</button></nav>
+<script>
+const KEY='organigastos-v1';
+const defaultData={openingBalance:1022.16,budgetLimit:1500,movements:[],goals:[{id:1,name:'iPhone',target:6500,saved:0,deadline:'2026-11-27'},{id:2,name:'Regalos de Navidad',target:3000,saved:0,deadline:'2026-12-24'}],bills:[{id:1,name:'Universidad',amount:715,due:'Día 1–10 de cada mes',active:true},{id:2,name:'Internet',amount:195,due:'Día 27 de cada mes',active:true},{id:3,name:'ChatGPT Premium',amount:46.97,due:'Día 11 de cada mes',active:true},{id:4,name:'Prime Video',amount:51.28,due:'Mensual',active:true}]};
+let data=load();let currentType='expense',filter='all';
+function load(){try{return {...structuredClone(defaultData),...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){return structuredClone(defaultData)}}
+function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function money(n){return 'Q '+Number(n||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function fmtDate(s){if(!s)return '';let d=new Date(s+'T12:00:00');return d.toLocaleDateString('es-GT',{day:'2-digit',month:'short',year:'numeric'})}
+function balance(){return Number(data.openingBalance||0)+data.movements.reduce((s,m)=>s+(m.type==='income'?m.amount:m.type==='expense'?-m.amount:0),0)}
+function totals(){let ms=data.movements;return {income:ms.filter(m=>m.type==='income').reduce((s,m)=>s+m.amount,0),expense:ms.filter(m=>m.type==='expense').reduce((s,m)=>s+m.amount,0),saving:ms.filter(m=>m.type==='saving').reduce((s,m)=>s+m.amount,0)}}
+function itemHTML(m,withDelete=true){let sign=m.type==='income'?'+':m.type==='expense'?'−':'♡';let cls=m.type==='income'?'green':m.type==='expense'?'red':'';return `<div class="row"><div class="rowmain"><strong>${esc(m.concept)}</strong><small>${esc(m.category)} · ${fmtDate(m.date)}${m.method?' · '+esc(m.method):''}</small>${m.note?`<small>${esc(m.note)}</small>`:''}</div><div style="text-align:right"><div class="amount ${cls}">${sign} ${money(m.amount)}</div>${withDelete?`<button class="secondary smallbtn" style="margin-top:5px" onclick="deleteMove(${m.id})">Eliminar</button>`:''}</div></div>`}
+function render(){let t=totals();document.getElementById('balance').textContent=money(balance());document.getElementById('incomeTotal').textContent=money(t.income);document.getElementById('expenseTotal').textContent=money(t.expense);document.getElementById('savedTotal').textContent=money(t.saving);document.getElementById('count').textContent=data.movements.length;let now=new Date();let month=now.toLocaleDateString('es-GT',{month:'long',year:'numeric'});document.getElementById('monthLabel').textContent=month;document.getElementById('budgetMonth').textContent=month;
+let sorted=[...data.movements].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id);document.getElementById('recent').innerHTML=sorted.slice(0,4).map(m=>itemHTML(m,false)).join('')||'<div class="empty">Todavía no hay movimientos. ¡Registrá el primero! 💗</div>';
+document.getElementById('movementList').innerHTML=sorted.filter(m=>filter==='all'||m.type===filter).map(m=>itemHTML(m)).join('')||'<div class="empty">No hay movimientos para mostrar.</div>';
+document.getElementById('homeGoals').innerHTML=data.goals.slice(0,2).map(goalHTML).join('')||'<div class="empty">Agregá una meta para empezar a ahorrar.</div>';
+document.getElementById('goalList').innerHTML=data.goals.map(g=>`<div class="card goal">${goalHTML(g)}<div style="display:flex;gap:8px;margin-top:12px"><button class="secondary smallbtn" onclick="editGoal(${g.id})">Editar</button><button class="secondary smallbtn danger" onclick="deleteGoal(${g.id})">Eliminar</button></div></div>`).join('')||'<div class="empty">Todavía no hay metas.</div>';
+document.getElementById('budgetLimit').value=data.budgetLimit;document.getElementById('openingBalance').value=data.openingBalance;
+let expenses=data.movements.filter(m=>m.type==='expense');let cats={};expenses.forEach(m=>cats[m.category]=(cats[m.category]||0)+m.amount);let total=Object.values(cats).reduce((a,b)=>a+b,0);
+document.getElementById('categoryBars').innerHTML=Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([c,v])=>`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between;gap:10px;font-size:13px"><strong>${esc(c)}</strong><span>${money(v)}</span></div><div class="progress"><span style="width:${total?v/total*100:0}%"></span></div></div>`).join('')||'<div class="empty">Cuando registrés gastos, aquí verás el desglose.</div>';
+document.getElementById('bills').innerHTML=data.bills.map(b=>`<div class="row"><div class="rowmain"><strong>${esc(b.name)}</strong><small>${esc(b.due)} · ${money(b.amount)}</small></div><label style="font-size:12px;white-space:nowrap"><input type="checkbox" ${b.active?'checked':''} onchange="toggleBill(${b.id},this.checked)"> Activo</label><button class="secondary smallbtn" onclick="deleteBill(${b.id})">×</button></div>`).join('')||'<div class="empty">No hay pagos recurrentes.</div>';
+}
+function goalHTML(g){let p=g.target?Math.min(100,g.saved/g.target*100):0;return `<div class="goalhead"><strong>🎯 ${esc(g.name)}</strong><span class="muted">${Math.round(p)}%</span></div><div class="progress"><span style="width:${p}%"></span></div><div style="display:flex;justify-content:space-between;font-size:12px"><span>${money(g.saved)} ahorrados</span><strong>${money(g.target)}</strong></div>${g.deadline?`<small class="muted">Meta: ${fmtDate(g.deadline)}</small>`:''}`}
+function showPage(id){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo(0,0);render()}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.querySelectorAll('.typebtn').forEach(b=>b.addEventListener('click',()=>{currentType=b.dataset.type;document.querySelectorAll('.typebtn').forEach(x=>x.classList.toggle('sel',x===b));if(currentType==='saving')document.getElementById('category').value='Ahorro';if(currentType==='income')document.getElementById('category').value='Otros'}));
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('sel',x===b));render()}));
+document.getElementById('date').value=new Date().toISOString().slice(0,10);
+document.getElementById('moveForm').addEventListener('submit',e=>{e.preventDefault();let amount=Number(document.getElementById('amount').value);if(!(amount>0))return alert('Ingresá un monto mayor que cero.');data.movements.push({id:Date.now(),type:currentType,amount,concept:document.getElementById('concept').value.trim(),category:document.getElementById('category').value,date:document.getElementById('date').value,method:document.getElementById('method').value,note:document.getElementById('note').value.trim()});e.target.reset();document.getElementById('date').value=new Date().toISOString().slice(0,10);currentType='expense';document.querySelectorAll('.typebtn').forEach(x=>x.classList.toggle('sel',x.dataset.type==='expense'));save();showPage('movements');alert('¡Movimiento guardado! 💗')});
+function deleteMove(id){if(confirm('¿Eliminar este movimiento? El saldo se recalculará.')){data.movements=data.movements.filter(m=>m.id!==id);save()}}
+function saveBudget(){data.budgetLimit=Math.max(0,Number(document.getElementById('budgetLimit').value)||0);save();alert('Presupuesto guardado.')}
+function saveOpening(){let n=Number(document.getElementById('openingBalance').value);if(!Number.isFinite(n))return alert('Revisá el saldo.');data.openingBalance=n;save();alert('Saldo inicial guardado.')}
+function addGoal(){let name=prompt('¿Cómo se llama tu meta?');if(!name?.trim())return;let target=Number(prompt('¿Cuánto querés reunir en quetzales?','1000'));if(!(target>0))return alert('La meta debe ser mayor que cero.');let saved=Number(prompt('¿Cuánto llevás ahorrado para esta meta?','0'))||0;let deadline=prompt('Fecha objetivo (AAAA-MM-DD), opcional:','');data.goals.push({id:Date.now(),name:name.trim(),target,saved:Math.max(0,saved),deadline});save()}
+function editGoal(id){let g=data.goals.find(x=>x.id===id);if(!g)return;let name=prompt('Nombre de la meta:',g.name);if(!name)return;let target=Number(prompt('Monto objetivo:',g.target));let saved=Number(prompt('Monto ahorrado:',g.saved));if(target>0&&saved>=0){g.name=name;g.target=target;g.saved=saved;save()}}
+function deleteGoal(id){if(confirm('¿Eliminar esta meta?')){data.goals=data.goals.filter(g=>g.id!==id);save()}}
+function addBill(){let name=prompt('Nombre del pago recurrente:');if(!name?.trim())return;let amount=Number(prompt('Monto en quetzales:','0'));if(!(amount>0))return alert('Ingresá un monto válido.');let due=prompt('¿Cuándo vence?','Mensual')||'Mensual';data.bills.push({id:Date.now(),name:name.trim(),amount,due,active:true});save()}
+function toggleBill(id,active){let b=data.bills.find(x=>x.id===id);if(b){b.active=active;save()}}
+function deleteBill(id){if(confirm('¿Eliminar este recordatorio?')){data.bills=data.bills.filter(b=>b.id!==id);save()}}
+function exportData(){let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='organigastos-respaldo.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!Array.isArray(x.movements)||!Array.isArray(x.goals)||!Array.isArray(x.bills))throw Error();if(confirm('Importar reemplazará los datos actuales. ¿Continuar?')){data={...structuredClone(defaultData),...x};save();alert('Respaldo importado.')}}catch(err){alert('No pude leer ese respaldo. Elegí un JSON exportado por Organigastos.')}e.target.value=''};r.readAsText(f)}
+function resetData(){if(confirm('Esto borrará movimientos, metas y ajustes guardados en este navegador. ¿Continuar?')&&confirm('Última confirmación: ¿borrar todo?')){data=structuredClone(defaultData);save()}}
+render();
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body></html>
